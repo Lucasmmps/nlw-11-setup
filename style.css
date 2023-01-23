@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #09090A;
+    color: white;
+  
+    height: 100vh;
+  }
+
+  header {
+    display: flex;
+    align-items: center; /* depende do par propriedade-valor "display: flex" */
+
+    justify-content: space-between; /* "justify-content: spacebetween" irá espaçar os conteúdos do elemento igualmente de uma borda até a outra */
+
+    padding: 48px;
+
+    position: fixed;
+    width: 100%;
+    background-color: #09090A;
+  }
+
+  button {
+    padding: 16px 24px;
+    border-radius: 8px;
+    border: 1px solid #8B5CF6;
+    background-color: transparent;
+    color: white;
+
+    display: flex;
+    align-items: center; /* depende do par propriedade-valor "display: flex" */
+    gap: 12px; /* tamanho do espaço entre os elementos contidos no elemento selecionado (no caso button) */
+
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  /*A estrutura de ID's e classes priorizam a estrutura de cascatas em CSS */
+
+  /* Sintaxe que define um ID como seletor: "#id {}" */
+  /* ID's são estruturas de maior prioridade comparado ao uma classe ou elemento em um código CSS */
+  /* Diferentemente das classes, cada ID é um atributo de nome único associado a um único elemento */
+  /* Um elemento associado a um ID pode ser elemento pai de outros elementos*/
+  #form-habits {
+    display: flex;
+
+    padding: 182px 48px 48px;
+    width: fit-content;
+  }
+
+  /* Sintaxe que define uma classe como seletor: ".classe {}" */
+  /* Classes são estruturas de maior prioridade comparado ao um elemento em um código CSS */
+  /* Uma mesma classe de nome único pode ser o atributo de múltiplos elementos fazendo assim que todos sejam associados a essa mesma classe */
+  /* Um elemento associado a uma classe pode ser elemento pai de outros elementos */
+
+  .habits {   /* todos os elementos com a classe nomeada "habits" receberão as propriedades aqui declaradas */
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+  }
+  
+  .habit {   /* todos os elementos com a classe nomeada "habit" receberão as propriedades aqui declaradas */
+    width: 64px;
+    height: 64px;
+    
+    font-size: 32px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .days {   /* todos os elementos com a classe nomeada "days" receberão as propriedades aqui declaradas */
+    display: flex;
+    gap: 48px;
+    margin-left: 32px;
+  }
+
+  .day {   /* todos os elementos com a classe nomeada "day" as propriedades aqui declaradas */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /*
+  Quando na sintaxe de uma declaração de uma classe for seguida de um elemento significa que ela é referente a todos os elementos do tipo
+  especificado contidos nos elementos pertencentes a essa classe
+  */
+
+  .day div {
+    margin-bottom: 8px;
+
+    font-family: 'Roboto Mono';
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 125%;
+
+    color: #A1A1AA;
+
+    text-align: center;
+  }
+
+  input {
+    appearance: none;
+    -webkit-appearance: none; /* o elemento entre traços antes da propriedade é chamado sintaticamente de "vendor prefix" */
+                              /* o webkit é um kit de compatibilidade com alguns navegadores */
+
+    width: 64px;
+    height: 64px;
+
+    border: 2px solid #27272A;
+    border-radius: 8px;
+
+    background: #18181B;
+  }
+
+  /* pseudo-selector: é um tipo de seletor de elementos que vem associado a um estado a partir de uma configuração feita por um atributo */
+  /*O atributo do elemento selecionado por um pseudo-selector deve ser acomapanhado de dois pontos (:) sem espaços entre o seletor e o atributo */
+  input:checked {
+    border: 2px solid #A78BFA;
+    background: #8B5CF6;
+  }
+
+  /*At-rule: é uma declaração de uma regra que descreve o comportamento de como o código em CSS deve se comportar em certas condições*/
+  /*Sintaticamente as at-rules seguem a seguinte estrutura @identificador (regra) {codigo_executado_para_a_regra}*/
+  @media (max-width: 570px) { /*A at-rule @media é usada para aplicar um estilo baseado no resultado de uma ou mais seleções (queries)*/
+    button div {
+      display: none; /*Quando o valor da largura máxima do dispositivo ou janela for 570 pixels o conteúdo da tag div, filha da tag button não aparecerá*/
+    }                /*Essa técnica de adaptação a diferentes tamanhos de tela e diferentes sistemas de mídia se chama responsividade*/
+  }
